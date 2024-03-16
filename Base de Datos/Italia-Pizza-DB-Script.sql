@@ -1,22 +1,3 @@
--- Eliminar la base de datos ItaliaPizzaDB si existe
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'ItaliaPizzaDB')
-    DROP DATABASE ItaliaPizzaDB;
-
--- Eliminar el inicio de sesión chefcito032 si existe
-IF EXISTS (SELECT * FROM sys.server_principals WHERE name = 'chefcito032')
-    DROP LOGIN chefcito032;
-
---Crear base de datos
-CREATE DATABASE ItaliaPizzaDB;
-
---Crear login y contraseña
-CREATE LOGIN chefcito032 WITH PASSWORD = 'pollitoPio10';
-
---Asignar permisos
-USE ItaliaPizzaDB;
-CREATE USER chefcito032 FOR LOGIN chefcito032;
-ALTER ROLE db_owner ADD MEMBER chefcito032;
-
 --Crear tablas
 CREATE TABLE Employee (
     email VARCHAR(30) PRIMARY KEY NOT NULL,
