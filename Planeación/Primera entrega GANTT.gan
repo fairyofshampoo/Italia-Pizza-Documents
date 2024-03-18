@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2024-02-29" view-index="0" gantt-divider-location="694" resource-divider-location="300" version="3.3.3303" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2024-02-29" view-index="0" gantt-divider-location="679" resource-divider-location="300" version="3.3.3303" locale="en_US">
     <description/>
     <view zooming-state="default:0" id="gantt-chart">
-        <field id="tpd3" name="Name" width="201" order="0"/>
-        <field id="tpd4" name="Begin date" width="69" order="1"/>
-        <field id="tpd5" name="End date" width="92" order="2"/>
-        <field id="tpd7" name="Completion" width="77" order="3"/>
-        <field id="tpd6" name="Duration" width="65" order="4"/>
-        <field id="tpd13" name="Resources" width="174" order="5"/>
+        <field id="tpd3" name="Name" width="197" order="0"/>
+        <field id="tpd4" name="Begin date" width="67" order="1"/>
+        <field id="tpd5" name="End date" width="90" order="2"/>
+        <field id="tpd7" name="Completion" width="75" order="3"/>
+        <field id="tpd6" name="Duration" width="64" order="4"/>
+        <field id="tpd13" name="Resources" width="170" order="5"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -40,17 +40,18 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" uid="b2f9b29814e847b8997e5534ef2019d8" name="Italia Pizza" meeting="false" project="true" start="2024-02-27" duration="20" complete="24" thirdDate="2024-02-27" thirdDate-constraint="1" expand="true">
-            <task id="1" uid="6579f1b34b1d40c386d759e7ce130a42" name="Ejecución" meeting="false" start="2024-02-27" duration="20" complete="24" expand="true">
-                <task id="4" uid="836782b496244a08bea7e2ed19718f7c" name="Artefactos de ingeniería" meeting="false" start="2024-02-27" duration="6" complete="81" expand="false">
+        <task id="0" uid="b2f9b29814e847b8997e5534ef2019d8" name="Italia Pizza" meeting="false" project="true" start="2024-02-27" duration="20" complete="29" thirdDate="2024-02-27" thirdDate-constraint="1" expand="true">
+            <task id="1" uid="6579f1b34b1d40c386d759e7ce130a42" name="Ejecución" meeting="false" start="2024-02-27" duration="20" complete="29" expand="true">
+                <task id="4" uid="836782b496244a08bea7e2ed19718f7c" name="Artefactos de ingeniería" meeting="false" start="2024-02-27" duration="6" complete="71" expand="false">
                     <task id="3" uid="6041b3c542d3402f883385e16f096514" name="Modelo de dominio" color="#8cb6ce" meeting="false" start="2024-02-29" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     <task id="5" uid="49a454bd7eb642dfa1ccad15409c025c" name="Diagrama de clases" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     <task id="6" uid="b828a93362b443c5b2a258d1b3c80b3a" name="Modelo relacional" color="#8cb6ce" meeting="false" start="2024-02-29" duration="2" complete="85" thirdDate="2024-03-04" thirdDate-constraint="0" expand="true"/>
                     <task id="7" uid="e558a6644be8453796102bdb17f153a4" name="Diagrama de casos de uso" color="#8cb6ce" meeting="false" start="2024-03-03" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     <task id="8" uid="31c068eb656548f89130f508a0aece66" name="Diagrama de paquetes" color="#8cb6ce" meeting="false" start="2024-03-04" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     <task id="9" uid="d231bed0e5694244b7c3db51f90fc8b0" name="Diagrama de despliegue" color="#8cb6ce" meeting="false" start="2024-03-03" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                    <task id="240" uid="bb70caa4e3e946cda9eb1dc1948f50a5" name="Diccionario de datos" meeting="false" start="2024-02-29" duration="1" complete="5" expand="true"/>
                 </task>
-                <task id="10" uid="76c84a8661d845e1aafea5023ed9f31a" name="Desarrollo de Software" meeting="false" start="2024-02-27" duration="20" complete="22" expand="true">
+                <task id="10" uid="76c84a8661d845e1aafea5023ed9f31a" name="Desarrollo de Software" meeting="false" start="2024-02-27" duration="20" complete="27" expand="false">
                     <task id="11" uid="6667f8045e904c808722ec2a3da301ed" name="CU-01" meeting="false" start="2024-03-03" duration="4" complete="85" expand="false">
                         <task id="12" uid="ef439073e10144c9a3e63ad3b57ba37a" name="Prototipo" color="#8cb6ce" meeting="false" start="2024-03-03" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="13" uid="517dc9470f2d405a842f324fa88f79cc" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-03" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
@@ -59,25 +60,25 @@
                         <task id="16" uid="004c7794fb48410eaad7233b09641e49" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-04" duration="2" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="17" uid="bb026a99ef024115bacaff03772a3686" name="Realizar pruebas unitarias" color="#8cb6ce" meeting="false" start="2024-03-06" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     </task>
-                    <task id="18" uid="aa7c2ac719f1402d8976b8ae75d7e44a" name="CU-02" meeting="false" start="2024-03-07" duration="4" complete="57" expand="false">
+                    <task id="18" uid="aa7c2ac719f1402d8976b8ae75d7e44a" name="CU-02" meeting="false" start="2024-03-07" duration="4" complete="85" expand="false">
                         <task id="19" uid="d1dbd91677ea45a19ce33386a4525d43" name="Prototipo" color="#8cb6ce" meeting="false" start="2024-03-07" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="20" uid="fb553b9be5384ba3bcb686dbfce211e0" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-07" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="21" uid="436a9e0c586b4511a9d86ea0b3a6990c" name="Diagrama de robustez" color="#8cb6ce" meeting="false" start="2024-03-07" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="22" uid="726cdc6f4a484fb0a46e09bafedeea61" name="Diagrama de secuencia" color="#8cb6ce" meeting="false" start="2024-03-07" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
-                        <task id="23" uid="2cc6c43db2804c809bc69aa98675ec41" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-08" duration="2" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                        <task id="23" uid="2cc6c43db2804c809bc69aa98675ec41" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-08" duration="2" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="24" uid="4d10b40c36b64086a7be0adda1dc2fb6" name="Realizar pruebas unitarias" color="#8cb6ce" meeting="false" start="2024-03-11" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     </task>
-                    <task id="25" uid="d855e575d3524f8b8a19f979da3dd5c8" name="CU-03" meeting="false" start="2024-03-12" duration="4" complete="14" expand="false">
+                    <task id="25" uid="d855e575d3524f8b8a19f979da3dd5c8" name="CU-03" meeting="false" start="2024-03-12" duration="4" complete="28" expand="false">
                         <task id="54" uid="2d66009a68f44423b8084bff9c991e34" name="Protipo" color="#8cb6ce" meeting="false" start="2024-03-12" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
-                        <task id="55" uid="120e5b5a58fd44d28db5728420b52222" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-12" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                        <task id="55" uid="120e5b5a58fd44d28db5728420b52222" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-12" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="56" uid="c8289f7178344472862085090db75185" name="Diagrama de robustez" color="#8cb6ce" meeting="false" start="2024-03-12" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="57" uid="94f130971a474c4b95543c6df0428e3e" name="Diagrama de secuencia" color="#8cb6ce" meeting="false" start="2024-03-12" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="58" uid="d32088be947d49d2b49b3cfd1e523e2e" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-13" duration="2" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="59" uid="cd0f39cade834cafa0f3f7b75b88cb17" name="Realizar prueba unitaria" color="#8cb6ce" meeting="false" start="2024-03-15" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     </task>
-                    <task id="26" uid="f12b147d9de04343a91d57f57a018625" name="CU-04" meeting="false" start="2024-03-17" duration="4" complete="0" expand="false">
-                        <task id="60" uid="007c8a953fae42ae986fb45c4bb95698" name="Prototipo" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
-                        <task id="61" uid="64842e441fa54de7aa15594ca23eb9fe" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                    <task id="26" uid="f12b147d9de04343a91d57f57a018625" name="CU-04" meeting="false" start="2024-03-17" duration="4" complete="28" expand="false">
+                        <task id="60" uid="007c8a953fae42ae986fb45c4bb95698" name="Prototipo" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                        <task id="61" uid="64842e441fa54de7aa15594ca23eb9fe" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="65" uid="c38f0d4914fa48e1acec33b947a24fdc" name="Diagrama de robustez" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="66" uid="0a015cbc550f46d5971c47bf05d131a4" name="Diagrama de secuencia" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="67" uid="46cb98a318b846b7bfe1fc1ff731e820" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-18" duration="2" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
@@ -91,20 +92,20 @@
                         <task id="72" uid="4c828ab30f4342cc995f3fd691be5e76" name="Codificación" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="0" expand="true"/>
                         <task id="73" uid="54c822d609f649bb97d2fa1cb9fb8909" name="Realizar prueba unitaria" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="0" expand="true"/>
                     </task>
-                    <task id="28" uid="0adfa6fb11f94f5ca87f41afe525a0db" name="CU-06" meeting="false" start="2024-03-03" duration="4" complete="57" expand="false">
+                    <task id="28" uid="0adfa6fb11f94f5ca87f41afe525a0db" name="CU-06" meeting="false" start="2024-03-03" duration="4" complete="85" expand="false">
                         <task id="75" uid="1b4627f209904ca28ec26452245f639d" name="Prototipos" color="#8cb6ce" meeting="false" start="2024-03-03" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="76" uid="3b909efba6a7470c949f84eb22be9c76" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-03" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="77" uid="6ea42f856bd44533b5dfd2949c466bae" name="Diagrama de robustez" color="#8cb6ce" meeting="false" start="2024-03-03" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="78" uid="9b7ce68bbb484c33bf487759d1a5a8f8" name="Diagrama de secuencia" color="#8cb6ce" meeting="false" start="2024-03-03" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
-                        <task id="79" uid="e6631bcabc3b4256958b0bb651d47620" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-04" duration="2" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                        <task id="79" uid="e6631bcabc3b4256958b0bb651d47620" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-04" duration="2" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="80" uid="bdc7956d36b244df8b9a295f5eba79cf" name="Realizar prueba unitaria" color="#8cb6ce" meeting="false" start="2024-03-06" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     </task>
-                    <task id="29" uid="a8bcb41036ba4a62a7719f52b39fff8c" name="CU-07" meeting="false" start="2024-03-07" duration="4" complete="57" expand="true">
+                    <task id="29" uid="a8bcb41036ba4a62a7719f52b39fff8c" name="CU-07" meeting="false" start="2024-03-07" duration="4" complete="85" expand="false">
                         <task id="81" uid="f17f315502ec4917b45ea3a07386d65d" name="Prototipos" color="#8cb6ce" meeting="false" start="2024-03-07" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="83" uid="b10307972c714b5e8346afe1f28887e1" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-07" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="84" uid="47d5c75d7d834864989f5a633655d6ab" name="Diagrama de robustez" color="#8cb6ce" meeting="false" start="2024-03-07" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="85" uid="ab4a6e4ea67f4cb3914f0a9093b383b4" name="Diagrama de secuencia" color="#8cb6ce" meeting="false" start="2024-03-07" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
-                        <task id="86" uid="c2498a41b07243798a1da25f8a7d16b9" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-08" duration="2" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                        <task id="86" uid="c2498a41b07243798a1da25f8a7d16b9" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-08" duration="2" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="87" uid="8685e16d7ecc4a7ab501932811dcd067" name="Realizar prueba unitaria" color="#8cb6ce" meeting="false" start="2024-03-11" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     </task>
                     <task id="30" uid="5609a4e7d7204f6090a97fb29f804829" name="CU-08" meeting="false" start="2024-03-03" duration="4" complete="85" expand="false">
@@ -155,7 +156,7 @@
                         <task id="122" uid="614651d4d447403199ae550030ede962" name="Codificación" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="0" expand="true"/>
                         <task id="123" uid="cbcc668fbfb6436fa5db0e43ea593089" name="Realizar prueba unitaria" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="0" expand="true"/>
                     </task>
-                    <task id="36" uid="fc7102cb1dfa49008404a919f7915119" name="CU-14" meeting="false" start="2024-03-12" duration="4" complete="57" expand="true">
+                    <task id="36" uid="fc7102cb1dfa49008404a919f7915119" name="CU-14" meeting="false" start="2024-03-12" duration="4" complete="57" expand="false">
                         <task id="124" uid="df3e9e93442b4c36b5b3754ce07565a4" name="Prototipos" meeting="false" start="2024-03-12" duration="1" complete="100" expand="true"/>
                         <task id="125" uid="7d30f9ad1fba4701a79c9ec5265aebee" name="Descripcion" color="#8cb6ce" meeting="false" start="2024-03-12" duration="1" complete="100" expand="true"/>
                         <task id="126" uid="894131e1b8324745b90fd5fff4acbfca" name="Diagrama de robustez" color="#8cb6ce" meeting="false" start="2024-03-12" duration="1" complete="100" expand="true"/>
@@ -163,7 +164,7 @@
                         <task id="128" uid="44e24fb7d3314b669a80eb93dafb19e3" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-13" duration="2" complete="0" expand="true"/>
                         <task id="129" uid="2e69989058784cedbd09ba0a7033ee16" name="Realizar prueba unitaria" color="#8cb6ce" meeting="false" start="2024-03-15" duration="1" complete="0" expand="true"/>
                     </task>
-                    <task id="37" uid="794efb534ba54a22a9b046915371de8c" name="CU-15" meeting="false" start="2024-03-17" duration="4" complete="57" expand="true">
+                    <task id="37" uid="794efb534ba54a22a9b046915371de8c" name="CU-15" meeting="false" start="2024-03-17" duration="4" complete="57" expand="false">
                         <task id="130" uid="77b8a13cd3bf42f5a88eaca46ac89031" name="Prototipos" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="131" uid="f6c953fbb14a4f90a369159100118e5a" name="Descripción" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="132" uid="c07b6e049b104db6826231b93a432856" name="Diagrama de robustez" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
@@ -267,18 +268,34 @@
                         <task id="217" uid="82b474f73d614adbbba9713b7997ca52" name="Codificación" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="218" uid="e3d79779bc084ad7945e1cf2fe48c7b4" name="Realizar prueba unitaria" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                     </task>
-                    <task id="219" uid="914df6fd15cd4f0a950112ea2169f92b" name="CU-28" color="#000000" meeting="false" start="2024-03-17" duration="4" complete="42" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true">
+                    <task id="219" uid="914df6fd15cd4f0a950112ea2169f92b" name="CU-28" color="#000000" meeting="false" start="2024-03-17" duration="4" complete="85" thirdDate="2024-02-27" thirdDate-constraint="0" expand="false">
                         <task id="220" uid="372c3ea7e70e4d1bb0b7d26319aff5bc" name="Prototipos" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="221" uid="6b33ed4c73be484d940ab73b1d9bb314" name="Descripción" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="222" uid="5c5cf2e66e354455bac48ff5a911d014" name="Diagrama de robustez" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
-                        <task id="223" uid="c89c61626c0148b19f9b994bcc1389c7" name="Diagrama de secuencia" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
-                        <task id="224" uid="cf136c1c65c04b869e110c7821a6122d" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-18" duration="2" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                        <task id="223" uid="c89c61626c0148b19f9b994bcc1389c7" name="Diagrama de secuencia" color="#8cb6ce" meeting="false" start="2024-03-17" duration="1" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                        <task id="224" uid="cf136c1c65c04b869e110c7821a6122d" name="Codificación" color="#8cb6ce" meeting="false" start="2024-03-18" duration="2" complete="100" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                         <task id="225" uid="f933a68fd3894a0190c0435e8715ddee" name="Realizar prueba unitaria" color="#8cb6ce" meeting="false" start="2024-03-20" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+                    </task>
+                    <task id="226" uid="469809f0263c465ead8a39f883bf118e" name="CU-29" meeting="false" start="2024-02-29" duration="1" complete="0" expand="false">
+                        <task id="227" uid="0374c9d6ef954abea34c3d9804af0228" name="Prototipos" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="228" uid="729b81d5b46249b394da637f7c66fd79" name="Descripción" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="229" uid="d8bf64e6d48b4c519e7d6c0f430e6431" name="Diagrama de robustez" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="230" uid="05d60b1019334424aed13eac35b58dfa" name="Diagrama de secuencia" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="231" uid="ff017e88ac1a4c508c715dfb2c7d6ca4" name="Codificación" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="232" uid="99988e3cc24549388b7595ddc8fd638f" name="Realizar prueba unitaria" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                    </task>
+                    <task id="233" uid="6d96c381181d49ae8c9091d24b6b74de" name="CU-30" meeting="false" start="2024-02-29" duration="1" complete="0" expand="false">
+                        <task id="234" uid="9bbadf3aa10e462780887a5f3cd7d76b" name="Prototipos" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="235" uid="63d7c31d38dd4e44a2e7bbd8030afde1" name="Descripción" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="236" uid="bd4e47e2775a43ca9154434ea99de7be" name="Diagrama de robustez" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="237" uid="add2fa2ae08c4bfda1ee1a6cd50a3bd3" name="Diagrama de secuencia" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="238" uid="2c3e5a76482546e491444c8152b1d12e" name="Codificación" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
+                        <task id="239" uid="8a342bffb5044822a8bf696a88311256" name="Realizar prueba unitaria" meeting="false" start="2024-02-29" duration="1" complete="0" expand="true"/>
                     </task>
                 </task>
             </task>
-            <task id="2" uid="6aa208113d974c0190fbe4343bb29839" name="Cierre" meeting="false" start="2024-02-27" duration="1" complete="6" expand="false">
-                <task id="62" uid="a8fdb4ec47f14fc7821b639c44186ce2" name="Documento final" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="12" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
+            <task id="2" uid="6aa208113d974c0190fbe4343bb29839" name="Cierre" meeting="false" start="2024-02-27" duration="1" complete="10" expand="false">
+                <task id="62" uid="a8fdb4ec47f14fc7821b639c44186ce2" name="Documento final" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="20" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
                 <task id="63" uid="24ae2706430d4d0ebfe361d27c54e588" name="Entrega formal de proyecto" color="#8cb6ce" meeting="false" start="2024-02-27" duration="1" complete="0" thirdDate="2024-02-27" thirdDate-constraint="0" expand="true"/>
             </task>
         </task>
