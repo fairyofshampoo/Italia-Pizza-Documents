@@ -14,14 +14,9 @@ The repository is organized into three main sections:
   
 - **Documentation:** Houses all project documentation, including user manuals, installation guides, and release notes.
 
-## Usage
-
-If you are involved in the Italia Pizza project, this repository can serve as a valuable resource for understanding the system's structure, its components, and their relationships. You can access and utilize the artifacts presented here to support various project activities, including development, testing, and communication with stakeholders.
-
-
 ## Additional Notes
 
 - This repository is part of the Italia Pizza project's documentation initiative.
-- Last updated: [26/03/2024]
+- Last updated: [04/04/2024]
 
 ---
