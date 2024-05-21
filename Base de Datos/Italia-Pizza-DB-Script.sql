@@ -1,203 +1,697 @@
---Crear tablas
-CREATE TABLE Employee (
-    email VARCHAR(30) PRIMARY KEY NOT NULL,
-    [name] VARCHAR(50) NOT NULL,
-    firstLastName VARCHAR(50) NOT NULL,
-    secondLastName VARCHAR(50) NOT NULL,
-    phone VARCHAR(20) NOT NULL,
-    [role] VARCHAR(20) NOT NULL
-);
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
 
-CREATE TABLE Account (
-    [user] VARCHAR(20) PRIMARY KEY NOT NULL,
-    isAdmin TINYINT NOT NULL,
-    [password] VARCHAR(8) NOT NULL,
-    [status] TINYINT NOT NULL,
-    email VARCHAR(30) NOT NULL
+-- Creating table 'Account'
+CREATE TABLE [Account] (
+    [user] varchar(20)  NOT NULL,
+    [isAdmin] tinyint  NOT NULL,
+    [password] varchar(64)  NULL,
+    [status] tinyint  NOT NULL,
+    [email] varchar(30)  NOT NULL
 );
+GO
 
-CREATE TABLE Client (
-    email VARCHAR(30) PRIMARY KEY NOT NULL,
-    [name] VARCHAR(50) NOT NULL,
-    firstLastName VARCHAR(50) NOT NULL,
-    secondLastName VARCHAR(50) NOT NULL,
-    phone VARCHAR(20) NOT NULL,
-    [status] TINYINT NOT NULL,
-);
-
+-- Creating table 'Address'
 CREATE TABLE [Address] (
-    addressId INT PRIMARY KEY IDENTITY(1,1),
-    street VARCHAR(60) NOT NULL,
-    number INT NOT NULL,
-    postalCode VARCHAR(10) NOT NULL,
-    colony VARCHAR(50) NOT NULL,
-    [status] TINYINT NOT NULL,
-    clientId VARCHAR(30) NOT NULL
+    [addressId] int IDENTITY(1,1) NOT NULL,
+    [street] varchar(60)  NOT NULL,
+    [postalCode] varchar(10)  NOT NULL,
+    [colony] varchar(50)  NOT NULL,
+    [status] tinyint  NOT NULL,
+    [clientId] varchar(30)  NOT NULL
+);
+GO
+
+-- Creating table 'Cashout'
+CREATE TABLE [Cashout] (
+    [cashoutId] int IDENTITY(1,1) NOT NULL,
+    [date] datetime  NOT NULL,
+    [total] decimal(10,2)  NOT NULL,
+    [cashoutType] tinyint(30)  NOT NULL
+);
+GO
+
+-- Creating table 'Client'
+CREATE TABLE [Client] (
+    [email] varchar(30)  NOT NULL,
+    [name] varchar(50)  NOT NULL,
+    [phone] varchar(20)  NOT NULL,
+    [status] tinyint  NOT NULL
+);
+GO
+
+-- Creating table 'ColonyCatalog'
+CREATE TABLE [ColonyCatalog] (
+    [idColony] int IDENTITY(1,1) NOT NULL,
+    [code] varchar(10)  NOT NULL,
+    [settlement] varchar(250)  NULL,
+    [typeSettlement] varchar(250)  NULL,
+    [municipality] varchar(250)  NULL,
+    [state] varchar(250)  NULL,
+    [city] varchar(250)  NULL
+);
+GO
+
+-- Creating table 'Employee'
+CREATE TABLE [Employee] (
+    [email] varchar(30)  NOT NULL,
+    [name] varchar(50)  NOT NULL,
+    [phone] varchar(20)  NOT NULL,
+    [role] varchar(20)  NOT NULL
+);
+GO
+
+-- Creating table 'HomeOrderProduct'
+CREATE TABLE [HomeOrderProduct] (
+    [OrderProductId] int IDENTITY(1,1) NOT NULL,
+    [amount] int  NOT NULL,
+    [homeOrderId] varchar(15)  NOT NULL,
+    [isConfirmed] tinyint NOT NULL,
+    [productId] varchar(50)  NOT NULL,
+    [addressId] int  NOT NULL
+);
+GO
+
+-- Creating table 'HomeOrder'
+CREATE TABLE [HomeOrder] (
+    [homeOrderId] VARCHAR(15) NOT NULL,
+    [status] INT  NOT NULL,
+    [date] datetime  NOT NULL,
+    [time] time  NOT NULL,
+    [total] decimal(10,2)  NOT NULL,
+    [clientName] varchar(30)  NOT NULL
+);
+GO
+
+-- Creating table 'InternalOrder'
+CREATE TABLE [InternalOrder] (
+    [internalOrderId] VARCHAR(15) NOT NULL,
+    [status] INT  NOT NULL,
+    [date] datetime  NOT NULL,
+    [time] time  NOT NULL,
+    [total] decimal(10,2)  NOT NULL,
+    [waiterEmail] varchar(30)  NOT NULL
+);
+GO
+
+-- Creating table 'InternalOrderProduct'
+CREATE TABLE [InternalOrderProduct] (
+    [internalOrderProductId] int IDENTITY(1,1) NOT NULL,
+    [amount] int  NOT NULL,
+    [isConfirmed] tinyint NOT NULL,
+    [internalOrderId] VARCHAR(15)  NOT NULL,
+    [productId] varchar(50)  NOT NULL
+);
+GO
+
+-- Creating table 'Product'
+CREATE TABLE [Product] (
+    [productCode] varchar(50)  NOT NULL,
+    [status] tinyint  NOT NULL,
+    [amount] int  NULL,
+    [description] varchar(max)  NOT NULL,
+    [isExternal] tinyint  NOT NULL,
+    [name] varchar(100)  NOT NULL,
+    [price] decimal(5,2)  NOT NULL,
+    [picture] varbinary(max)  NULL
+);
+GO
+
+-- Creating table 'Recipe'
+CREATE TABLE [Recipe] (
+    [recipeCode] INT IDENTITY(1,1)  NOT NULL,
+    [description] varchar(max)  NOT NULL,
+    [status] tinyint  NOT NULL,
+    [name] varchar(50)  NOT NULL,
+    [ProductId] varchar(50)  NOT NULL
+);
+GO
+
+-- Creating table 'RecipeSupply'
+CREATE TABLE [RecipeSupply] (
+    [recipeSupplyCode] int IDENTITY(1,1) NOT NULL,
+    [supplyAmount] DECIMAL(6,3)  NOT NULL,
+    [recipeID] int  NOT NULL,
+    [supplyId] varchar(50)  NOT NULL
+);
+GO
+
+-- Creating table 'Supplier'
+CREATE TABLE [Supplier] (
+    [email] varchar(30)  NOT NULL,
+    [phone] varchar(20)  NOT NULL,
+    [companyName] varchar(60)  NOT NULL,
+    [manager] varchar(100)  NOT NULL,
+    [status] tinyint  NOT NULL
+);
+GO
+
+-- Creating table 'SupplierOrder'
+CREATE TABLE [SupplierOrder] (
+    [orderCode] int IDENTITY(1,1) NOT NULL,
+    [status] tinyint  NOT NULL,
+    [date] datetime  NOT NULL,
+    [time] time  NOT NULL,
+    [modificationDate] datetime NOT NULL,
+    [total] decimal(10,2)  NOT NULL,
+    [supplierId] varchar(30)  NOT NULL
+);
+GO
+
+-- Creating table 'Supply'
+CREATE TABLE [Supply] (
+    [name] varchar(50)  NOT NULL,
+    [amount] decimal(6,3)  NOT NULL,
+    [category] int  NOT NULL,
+    [measurementUnit] varchar(20)  NOT NULL,
+    [status] bit NOT NULL
+);
+GO
+
+-- Crear tabla CashierLog
+CREATE TABLE CashierLog (
+    id INT PRIMARY KEY IDENTITY,
+    openingDate DATETIME,
+    closingDate DATETIME,
+    initialBalance DECIMAL(10, 2) NOT NULL,
+    ordersCashin DECIMAL(10, 2) NOT NULL,
+    miscellaneousCashin DECIMAL(10, 2),
+    supplierOrderCashout DECIMAL(10, 2) NOT NULL,
+    miscellaneousCashout DECIMAL(10, 2) NOT NULL,
+    finalBalance DECIMAL(10, 2) NOT NULL,
+    createdBy VARCHAR(30),
+    [status] TINYINT
 );
 
-CREATE TABLE Dealer (
-    phone VARCHAR(20) PRIMARY KEY NOT NULL,
-    name VARCHAR(100) NOT NULL
-);
 
-CREATE TABLE Product (
-    productCode VARCHAR(50) PRIMARY KEY NOT NULL,
-    [status] TINYINT NOT NULL,
-    amount INT NOT NULL,
-    [description] TEXT NOT NULL,
-    isExternal TINYINT NOT NULL,
-    [name] VARCHAR(100) NOT NULL,
-    price DECIMAL(5, 2) NOT NULL,
-    photo TEXT NOT NULL
+-- Crear la tabla StatusOrder
+CREATE TABLE [StatusOrder] (
+    [statusId] INT PRIMARY KEY IDENTITY(1,1),
+    [type] NVARCHAR(25)
 );
+GO
 
-CREATE TABLE Recipe (
-    recipeCode VARCHAR(10) PRIMARY KEY NOT NULL,
-    [description] TEXT NOT NULL,
-    [status] TINYINT NOT NULL,
-    [name] VARCHAR(50) NOT NULL,
-    ProductId VARCHAR(50) NOT NULL
+-- Creating table 'SupplyArea'
+CREATE TABLE [SupplyArea] (
+    [area_id] int IDENTITY(1,1)NOT NULL,
+    [area_name] nvarchar(50)  NULL
 );
+GO
 
-CREATE TABLE Supply (
-    [name] VARCHAR(50) PRIMARY KEY NOT NULL,
-    amount INT NOT NULL,
-    category VARCHAR(50) NOT NULL,
-    expiryDate DATE NOT NULL,
-    measurementUnit VARCHAR(20) NOT NULL
+-- Creating table 'SupplyOrder'
+CREATE TABLE [SupplyOrder] (
+    [supplyOrderCode] int IDENTITY(1,1) NOT NULL,
+    [quantityOrdered] int  NOT NULL,
+    [supplyId] varchar(50)  NOT NULL,
+    [supplierOrderId] int  NOT NULL
 );
+GO
 
-CREATE TABLE Supplier (
-    email VARCHAR(30) PRIMARY KEY NOT NULL,
-    phone VARCHAR(20) NOT NULL,
-    supplyArea VARCHAR(30) NOT NULL,
-    companyName VARCHAR(60) NOT NULL,
-    manager VARCHAR(100) NOT NULL,
-    [status] TINYINT NOT NULL
+-- Creating table 'Supplier_SupplyArea'
+CREATE TABLE [Supplier_SupplyArea] (
+    [Supplier_email] varchar(30)  NOT NULL,
+    [SupplyArea_area_id] int  NOT NULL
 );
+GO
 
-CREATE TABLE SupplierOrder (
-    orderCode INT PRIMARY KEY IDENTITY(1,1),
-    [status] TINYINT NOT NULL,
-    [date] DATE NOT NULL,
-    [time] TIME NOT NULL,
-    total DECIMAL(10, 2) NOT NULL,
-    supplierId VARCHAR(30) NOT NULL
-);
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
 
-CREATE TABLE Cashin (
-    cashinId INT PRIMARY KEY IDENTITY(1,1),
-    [date] DATE NOT NULL,
-    [time] TIME NOT NULL,
-    total DECIMAL(10, 2) NOT NULL
-);
+-- Creating primary key on [user] in table 'Account'
+ALTER TABLE [Account]
+ADD CONSTRAINT [PK_Account]
+    PRIMARY KEY CLUSTERED ([user] ASC);
+GO
 
-CREATE TABLE Cashout (
-    cashoutId INT PRIMARY KEY IDENTITY(1,1),
-    [date] DATE NOT NULL,
-    [time] TIME NOT NULL,
-    total DECIMAL(10, 2) NOT NULL,
-	cashoutType VARCHAR(30) NOT NULL
-);
+-- Creating primary key on [addressId] in table 'Address'
+ALTER TABLE [Address]
+ADD CONSTRAINT [PK_Address]
+    PRIMARY KEY CLUSTERED ([addressId] ASC);
+GO
 
-CREATE TABLE RecipeSupply (
-    recipeSupplyCode INT PRIMARY KEY IDENTITY(1,1),
-    supplyAmount INT NOT NULL,
-    recipeID VARCHAR(10) NOT NULL,
-    supplyId VARCHAR(50) NOT NULL
-);
+-- Creating primary key on [cashoutId] in table 'Cashout'
+ALTER TABLE [Cashout]
+ADD CONSTRAINT [PK_Cashout]
+    PRIMARY KEY CLUSTERED ([cashoutId] ASC);
+GO
 
-CREATE TABLE SupplyOrder (
-    supplyCode INT PRIMARY KEY IDENTITY(1,1),
-    quantityOrdered INT NOT NULL,
-    supplyId VARCHAR(50) NOT NULL,
-    supplierOrderId INT NOT NULL
-);
+-- Creating primary key on [email] in table 'Client'
+ALTER TABLE [Client]
+ADD CONSTRAINT [PK_Client]
+    PRIMARY KEY CLUSTERED ([email] ASC);
+GO
 
-CREATE TABLE InternalOrder (
-    internalOrderId INT PRIMARY KEY IDENTITY(1,1),
-    [status] VARCHAR(20) NOT NULL,
-    [date] DATE NOT NULL,
-    [time] TIME NOT NULL,
-    total DECIMAL(10, 2) NOT NULL,
-    waiterName VARCHAR(30) NOT NULL
-);
+-- Creating primary key on [idColony] in table 'ColonyCatalog'
+ALTER TABLE [ColonyCatalog]
+ADD CONSTRAINT [PK_ColonyCatalog]
+    PRIMARY KEY CLUSTERED ([idColony] ASC);
+GO
 
-CREATE TABLE HouseOrder (
-    houseOrderId INT PRIMARY KEY IDENTITY(1,1),
-    [status] VARCHAR(30) NOT NULL,
-    [date] DATE NOT NULL,
-    [time] TIME NOT NULL,
-    total DECIMAL(10, 2) NOT NULL,
-    clientName VARCHAR(30) NOT NULL,
-    dealerId VARCHAR(20) NOT NULL
-);
+-- Creating primary key on [email] in table 'Employee'
+ALTER TABLE [Employee]
+ADD CONSTRAINT [PK_Employee]
+    PRIMARY KEY CLUSTERED ([email] ASC);
+GO
 
-CREATE TABLE InternalOrderProduct (
-    internalOrderProductId INT PRIMARY KEY IDENTITY(1,1),
-    amount INT NOT NULL,
-    internalOrderId INT NOT NULL,
-    productId VARCHAR(50) NOT NULL
-);
+-- Creating primary key on [OrderProductId] in table 'HomeOrderProduct'
+ALTER TABLE [HomeOrderProduct]
+ADD CONSTRAINT [PK_HomeOrderProduct]
+    PRIMARY KEY CLUSTERED ([OrderProductId] ASC);
+GO
 
-CREATE TABLE HomeOrderProduct (
-    OrderProductId INT PRIMARY KEY IDENTITY(1,1),
-    amount INT NOT NULL,
-    homeOrderId INT NOT NULL,
-    productId VARCHAR(50) NOT NULL,
-    addressId INT NOT NULL
-);
+-- Creating primary key on [homeOrderId] in table 'HomeOrder'
+ALTER TABLE [HomeOrder]
+ADD CONSTRAINT [PK_HomeOrder]
+    PRIMARY KEY CLUSTERED ([homeOrderId] ASC);
+GO
 
+-- Creating primary key on [internalOrderId] in table 'InternalOrder'
+ALTER TABLE [InternalOrder]
+ADD CONSTRAINT [PK_InternalOrder]
+    PRIMARY KEY CLUSTERED ([internalOrderId] ASC);
+GO
+
+-- Creating primary key on [internalOrderProductId] in table 'InternalOrderProduct'
+ALTER TABLE [InternalOrderProduct]
+ADD CONSTRAINT [PK_InternalOrderProduct]
+    PRIMARY KEY CLUSTERED ([internalOrderProductId] ASC);
+GO
+
+-- Creating primary key on [productCode] in table 'Product'
+ALTER TABLE [Product]
+ADD CONSTRAINT [PK_Product]
+    PRIMARY KEY CLUSTERED ([productCode] ASC);
+GO
+
+-- Creating primary key on [recipeCode] in table 'Recipe'
+ALTER TABLE [Recipe]
+ADD CONSTRAINT [PK_Recipe]
+    PRIMARY KEY CLUSTERED ([recipeCode] ASC);
+GO
+
+-- Creating primary key on [recipeSupplyCode] in table 'RecipeSupply'
+ALTER TABLE [RecipeSupply]
+ADD CONSTRAINT [PK_RecipeSupply]
+    PRIMARY KEY CLUSTERED ([recipeSupplyCode] ASC);
+GO
+
+-- Creating primary key on [email] in table 'Supplier'
+ALTER TABLE [Supplier]
+ADD CONSTRAINT [PK_Supplier]
+    PRIMARY KEY CLUSTERED ([email] ASC);
+GO
+
+-- Creating primary key on [orderCode] in table 'SupplierOrder'
+ALTER TABLE [SupplierOrder]
+ADD CONSTRAINT [PK_SupplierOrder]
+    PRIMARY KEY CLUSTERED ([orderCode] ASC);
+GO
+
+-- Creating primary key on [name] in table 'Supply'
+ALTER TABLE [Supply]
+ADD CONSTRAINT [PK_Supply]
+    PRIMARY KEY CLUSTERED ([name] ASC);
+GO
+
+-- Creating primary key on [area_id] in table 'SupplyArea'
+ALTER TABLE [SupplyArea]
+ADD CONSTRAINT [PK_SupplyArea]
+    PRIMARY KEY CLUSTERED ([area_id] ASC);
+GO
+
+-- Creating primary key on [supplyCode] in table 'SupplyOrder'
+ALTER TABLE [SupplyOrder]
+ADD CONSTRAINT [PK_SupplyOrder]
+    PRIMARY KEY CLUSTERED ([supplyOrderCode] ASC);
+GO
+-- Creating primary key on [Supplier_email], [SupplyArea_area_id] in table 'Supplier_SupplyArea'
+ALTER TABLE [Supplier_SupplyArea]
+ADD CONSTRAINT [PK_Supplier_SupplyArea]
+    PRIMARY KEY CLUSTERED ([Supplier_email], [SupplyArea_area_id] ASC);
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [email] in table 'Account'
+ALTER TABLE [Account]
+ADD CONSTRAINT [FK_Account_Employee]
+    FOREIGN KEY ([email])
+    REFERENCES [Employee]
+        ([email])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Relacionar la columna category de la tabla Supply con la tabla SupplyArea
+ALTER TABLE Supply
+ADD CONSTRAINT FK_Supply_SupplyArea
+    FOREIGN KEY (category)
+    REFERENCES SupplyArea(area_id)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Account_Employee'
+CREATE INDEX [IX_FK_Account_Employee]
+ON [Account]
+    ([email]);
+GO
+
+-- Creating foreign key on [addressId] in table 'HomeOrderProduct'
+ALTER TABLE [HomeOrderProduct]
+ADD CONSTRAINT [FK_AddressId]
+    FOREIGN KEY ([addressId])
+    REFERENCES [Address]
+        ([addressId])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AddressId'
+CREATE INDEX [IX_FK_AddressId]
+ON [HomeOrderProduct]
+    ([addressId]);
+GO
+
+-- Creating foreign key on [clientId] in table 'Address'
+ALTER TABLE [Address]
+ADD CONSTRAINT [FK_ClientAddress]
+    FOREIGN KEY ([clientId])
+    REFERENCES [Client]
+        ([email])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ClientAddress'
+CREATE INDEX [IX_FK_ClientAddress]
+ON [Address]
+    ([clientId]);
+GO
+
+-- Creating foreign key on [clientName] in table 'HomeOrder'
+ALTER TABLE [HomeOrder]
+ADD CONSTRAINT [FK_ClientName]
+    FOREIGN KEY ([clientName])
+    REFERENCES [Client]
+        ([email])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ClientName'
+CREATE INDEX [IX_FK_ClientName]
+ON [HomeOrder]
+    ([clientName]);
+GO
+
+-- Creating foreign key on [waiterEmail] in table 'InternalOrder'
+ALTER TABLE [InternalOrder]
+ADD CONSTRAINT [FK_waiterEmail]
+    FOREIGN KEY ([waiterEmail])
+    REFERENCES [Employee]
+        ([email])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_waiterEmail'
+CREATE INDEX [IX_FK_waiterEmail]
+ON [InternalOrder]
+    ([waiterEmail]);
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeForCashier'
+CREATE INDEX [IX_FK_EmployeeForCashier]
+ON [CashierLog]
+    ([createdBy]);
+GO
+
+-- Creating foreign key on [employeeId] in table 'CashierLog'
+ALTER TABLE [CashierLog]
+ADD CONSTRAINT [FK_EmployeeForCashier]
+    FOREIGN KEY ([createdBy])
+    REFERENCES [Employee]
+        ([email])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [homeOrderId] in table 'HomeOrderProduct'
+ALTER TABLE [HomeOrderProduct]
+ADD CONSTRAINT [FK_HomeOrderId]
+    FOREIGN KEY ([homeOrderId])
+    REFERENCES [HomeOrder]
+        ([homeOrderId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_HomeOrderId'
+CREATE INDEX [IX_FK_HomeOrderId]
+ON [HomeOrderProduct]
+    ([homeOrderId]);
+GO
+
+-- Creating foreign key on [productId] in table 'HomeOrderProduct'
+ALTER TABLE [HomeOrderProduct]
+ADD CONSTRAINT [FK_HomeProductId]
+    FOREIGN KEY ([productId])
+    REFERENCES [Product]
+        ([productCode])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_HomeProductId'
+CREATE INDEX [IX_FK_HomeProductId]
+ON [HomeOrderProduct]
+    ([productId]);
+GO
+
+-- Creating foreign key on [internalOrderId] in table 'InternalOrderProduct'
+ALTER TABLE [InternalOrderProduct]
+ADD CONSTRAINT [FK_InternalOrderId]
+    FOREIGN KEY ([internalOrderId])
+    REFERENCES [InternalOrder]
+        ([internalOrderId])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_InternalOrderId'
+CREATE INDEX [IX_FK_InternalOrderId]
+ON [InternalOrderProduct]
+    ([internalOrderId]);
+GO
+
+-- Creating foreign key on [productId] in table 'InternalOrderProduct'
+ALTER TABLE [InternalOrderProduct]
+ADD CONSTRAINT [FK_ProductId]
+    FOREIGN KEY ([productId])
+    REFERENCES [Product]
+        ([productCode])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductId'
+CREATE INDEX [IX_FK_ProductId]
+ON [InternalOrderProduct]
+    ([productId]);
+GO
+
+-- Creating foreign key on [ProductId] in table 'Recipe'
+ALTER TABLE [Recipe]
+ADD CONSTRAINT [FK_ProductId_Recipe]
+    FOREIGN KEY ([ProductId])
+    REFERENCES [Product]
+        ([productCode])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProductId_Recipe'
+CREATE INDEX [IX_FK_ProductId_Recipe]
+ON [Recipe]
+    ([ProductId]);
+GO
+
+-- Creating foreign key on [recipeID] in table 'RecipeSupply'
+ALTER TABLE [RecipeSupply]
+ADD CONSTRAINT [FK_Recipeuprecip_02084FDA]
+    FOREIGN KEY ([recipeID])
+    REFERENCES [Recipe]
+        ([recipeCode])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Recipeuprecip_02084FDA'
+CREATE INDEX [IX_FK_Recipeuprecip_02084FDA]
+ON [RecipeSupply]
+    ([recipeID]);
+GO
+
+-- Creating foreign key on [supplyId] in table 'RecipeSupply'
+ALTER TABLE [RecipeSupply]
+ADD CONSTRAINT [FK_Recipeupsuppl_02FC7413]
+    FOREIGN KEY ([supplyId])
+    REFERENCES [Supply]
+        ([name])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Recipeupsuppl_02FC7413'
+CREATE INDEX [IX_FK_Recipeupsuppl_02FC7413]
+ON [RecipeSupply]
+    ([supplyId]);
+GO
+
+-- Creating foreign key on [supplierId] in table 'SupplierOrder'
+ALTER TABLE [SupplierOrder]
+ADD CONSTRAINT [FK_SupplierOrder_Supplier]
+    FOREIGN KEY ([supplierId])
+    REFERENCES [Supplier]
+        ([email])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_SupplierOrder_Supplier'
+CREATE INDEX [IX_FK_SupplierOrder_Supplier]
+ON [SupplierOrder]
+    ([supplierId]);
+GO
+
+-- Creating foreign key on [supplierOrderId] in table 'SupplyOrder'
+ALTER TABLE [SupplyOrder]
+ADD CONSTRAINT [FK_SupplierOrderId]
+    FOREIGN KEY ([supplierOrderId])
+    REFERENCES [SupplierOrder]
+        ([orderCode])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_SupplierOrderId'
+CREATE INDEX [IX_FK_SupplierOrderId]
+ON [SupplyOrder]
+    ([supplierOrderId]);
+GO
+
+-- Creating foreign key on [supplyId] in table 'SupplyOrder'
+ALTER TABLE [SupplyOrder]
+ADD CONSTRAINT [FK_SupplyId]
+    FOREIGN KEY ([supplyId])
+    REFERENCES [Supply]
+        ([name])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_SupplyId'
+CREATE INDEX [IX_FK_SupplyId]
+ON [SupplyOrder]
+    ([supplyId]);
+GO
+
+-- Creating foreign key on [Supplier_email] in table 'Supplier_SupplyArea'
+ALTER TABLE [Supplier_SupplyArea]
+ADD CONSTRAINT [FK_Supplier_SupplyArea_Supplier]
+    FOREIGN KEY ([Supplier_email])
+    REFERENCES [Supplier]
+        ([email])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating foreign key on [SupplyArea_area_id] in table 'Supplier_SupplyArea'
+ALTER TABLE [Supplier_SupplyArea]
+ADD CONSTRAINT [FK_Supplier_SupplyArea_SupplyArea]
+    FOREIGN KEY ([SupplyArea_area_id])
+    REFERENCES [SupplyArea]
+        ([area_id])
+    ON DELETE CASCADE ON UPDATE CASCADE;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Supplier_SupplyArea_SupplyArea'
+CREATE INDEX [IX_FK_Supplier_SupplyArea_SupplyArea]
+ON [Supplier_SupplyArea]
+    ([SupplyArea_area_id]);
+GO
+
+-- --------------------------------------------------
+-- Llenando datos escenciales
+-- --------------------------------------------------
+
+-- Insertar datos en la tabla SupplyArea
+SET IDENTITY_INSERT SupplyArea ON;
+INSERT INTO SupplyArea (area_id, area_name)
+VALUES 
+    (1, 'Carnes frías'),
+    (2, 'Verduras'),
+    (3, 'Especias'),
+    (4, 'Lácteos'),
+    (5, 'Producto externo');
+
+SET IDENTITY_INSERT SupplyArea OFF;
+
+-- Insertar estados de orden
+SET IDENTITY_INSERT SupplyArea ON;
+INSERT INTO StatusOrder (statusId, [type])
+VALUES 
+    (0, 'En captura'),
+    (1, 'En espera de preparación'),
+    (2, 'En preparación'),
+    (3, 'Preparado'),
+    (4, 'Enviado'),
+    (5, 'Entregado');
+SET IDENTITY_INSERT SupplyArea OFF;
+
+--- Un FK que faltaba en orders
 ALTER TABLE InternalOrder
-ADD CONSTRAINT FK_waiterName FOREIGN KEY (waiterName) REFERENCES Employee(email);
+ADD CONSTRAINT FK_StatusOrder_InternalOrders FOREIGN KEY (status) REFERENCES StatusOrder(statusId);
 
-ALTER TABLE Account
-ADD CONSTRAINT FK_Account_Employee FOREIGN KEY (email) REFERENCES Employee(email);
+ALTER TABLE HomeOrder
+ADD CONSTRAINT FK_StatusOrder_HomeOrders FOREIGN KEY (status) REFERENCES StatusOrder(statusId);
 
-ALTER TABLE Address
-ADD CONSTRAINT FK_ClientAddress FOREIGN KEY (clientId) REFERENCES Client(email);
+--- CREAR FUNCION PARA SACAR CUANTO DE UN PRODUCTO SE PUEDE PREPARAR:
+/*CREATE FUNCTION  [dbo].[VALIDATEINGREDIENTSAMOUNT] (@RecipeId INT)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @minimumTotal INT = 0;
 
-ALTER TABLE Recipe
-ADD CONSTRAINT FK_ProductId_Recipe
-FOREIGN KEY (ProductId) REFERENCES Product(productCode);
+    DECLARE @ingredientsNeedle TABLE (
+        supplyID NVARCHAR(50), 
+        supplyAmount FLOAT
+    );
 
-ALTER TABLE SupplierOrder
-ADD CONSTRAINT FK_SupplierOrder_Supplier
-FOREIGN KEY (supplierId) REFERENCES Supplier(email);
+    INSERT INTO @ingredientsNeedle (supplyID, supplyAmount)
+    SELECT supplyId, supplyAmount
+    FROM RecipeSupply
+    WHERE recipeID = @RecipeId
 
-ALTER TABLE RecipeSupply
-ADD FOREIGN KEY (recipeID) REFERENCES Recipe(recipeCode);
+    DECLARE @ingredient NVARCHAR(50);
+    DECLARE @amountNeedle FLOAT;
+    DECLARE @amountAvailable FLOAT;
+    DECLARE @provisionalTotal INT = 0;
 
-ALTER TABLE RecipeSupply
-ADD FOREIGN KEY (supplyId) REFERENCES Supply([name]);
+    DECLARE ingredientes_cursor CURSOR FOR
+    SELECT S.name, RS.supplyAmount
+    FROM @ingredientsNeedle AS RS
+    INNER JOIN Supply AS S ON RS.supplyId = S.name;
 
-ALTER TABLE SupplyOrder
-ADD CONSTRAINT FK_SupplyId FOREIGN KEY (supplyId) REFERENCES Supply([name]);
+    OPEN ingredientes_cursor
+    FETCH NEXT FROM ingredientes_cursor INTO @ingredient, @amountNeedle; 
 
-ALTER TABLE SupplyOrder
-ADD CONSTRAINT FK_SupplierOrderId FOREIGN KEY (supplierOrderId) REFERENCES SupplierOrder(orderCode);
+    SELECT @amountAvailable = amount
+    FROM Supply
+    WHERE name  = @ingredient;
 
-ALTER TABLE InternalOrder
-ADD CONSTRAINT FK_WaiterNameForOrder FOREIGN KEY (waiterName) REFERENCES Employee(email);
+    SET @minimumTotal = CAST (@amountAvailable/@amountNeedle AS INT);
+    FETCH NEXT FROM ingredientes_cursor INTO @ingredient, @amountNeedle;
 
-ALTER TABLE HouseOrder
-ADD CONSTRAINT FK_ClientName FOREIGN KEY (clientName) REFERENCES Client(email);
-
-ALTER TABLE HouseOrder
-ADD CONSTRAINT FK_DealerId FOREIGN KEY (dealerId) REFERENCES Dealer(phone);
-
-ALTER TABLE InternalOrderProduct
-ADD CONSTRAINT FK_InternalOrderId FOREIGN KEY (internalOrderId) REFERENCES InternalOrder(internalOrderId);
-
-ALTER TABLE InternalOrderProduct
-ADD CONSTRAINT FK_ProductId FOREIGN KEY (productId) REFERENCES Product(productCode);
-
-ALTER TABLE HomeOrderProduct
-ADD CONSTRAINT FK_HomeOrderId FOREIGN KEY (homeOrderId) REFERENCES HouseOrder(houseOrderId);
-
-ALTER TABLE HomeOrderProduct
-ADD CONSTRAINT FK_HomeProductId FOREIGN KEY (productId) REFERENCES Product(productCode);
-
-
-ALTER TABLE HomeOrderProduct
-ADD CONSTRAINT FK_AddressId FOREIGN KEY (addressId) REFERENCES Address(addressId);
+    WHILE @@FETCH_STATUS = 0
+    BEGIN 
+        SELECT @amountAvailable = amount
+        FROM Supply
+        WHERE name  = @ingredient;
+        BEGIN 
+            SET @provisionalTotal = CAST (@amountAvailable/@amountNeedle AS INT);
+            IF @provisionalTotal <= @minimumTotal
+                SET @minimumTotal = @provisionalTotal
+        END
+        FETCH NEXT FROM ingredientes_cursor INTO @ingredient, @amountNeedle;
+    END
+    CLOSE ingredientes_cursor;
+    DEALLOCATE ingredientes_cursor;
+    RETURN @minimumTotal
+END*/
