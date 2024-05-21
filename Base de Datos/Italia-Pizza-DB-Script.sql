@@ -27,9 +27,8 @@ GO
 CREATE TABLE [Cashout] (
     [cashoutId] int IDENTITY(1,1) NOT NULL,
     [date] datetime  NOT NULL,
-    [time] time  NOT NULL,
     [total] decimal(10,2)  NOT NULL,
-    [cashoutType] varchar(30)  NOT NULL
+    [cashoutType] tinyint(30)  NOT NULL
 );
 GO
 
@@ -171,14 +170,20 @@ CREATE TABLE [Supply] (
 GO
 
 -- Crear tabla CashierLog
-CREATE TABLE [CashierLog] (
-    [logId] INT PRIMARY KEY IDENTITY(1,1),
-    [creationDate] DATE NOT NULL,
-    [creationTime] TIME NOT NULL,
-    [employeeId] VARCHAR(30) NOT NULL,
-    [report] VARBINARY(MAX) NOT NULL
+CREATE TABLE CashierLog (
+    id INT PRIMARY KEY IDENTITY,
+    openingDate DATETIME,
+    closingDate DATETIME,
+    initialBalance DECIMAL(10, 2) NOT NULL,
+    ordersCashin DECIMAL(10, 2) NOT NULL,
+    miscellaneousCashin DECIMAL(10, 2),
+    supplierOrderCashout DECIMAL(10, 2) NOT NULL,
+    miscellaneousCashout DECIMAL(10, 2) NOT NULL,
+    finalBalance DECIMAL(10, 2) NOT NULL,
+    createdBy VARCHAR(30),
+    [status] TINYINT
 );
-GO
+
 
 -- Crear la tabla StatusOrder
 CREATE TABLE [StatusOrder] (
@@ -416,13 +421,13 @@ GO
 -- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeForCashier'
 CREATE INDEX [IX_FK_EmployeeForCashier]
 ON [CashierLog]
-    ([employeeId]);
+    ([createdBy]);
 GO
 
 -- Creating foreign key on [employeeId] in table 'CashierLog'
 ALTER TABLE [CashierLog]
 ADD CONSTRAINT [FK_EmployeeForCashier]
-    FOREIGN KEY ([employeeId])
+    FOREIGN KEY ([createdBy])
     REFERENCES [Employee]
         ([email])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -607,22 +612,28 @@ GO
 -- --------------------------------------------------
 
 -- Insertar datos en la tabla SupplyArea
-INSERT INTO SupplyArea (area_name)
+SET IDENTITY_INSERT SupplyArea ON;
+INSERT INTO SupplyArea (area_id, area_name)
 VALUES 
-    ('Carnes frías'),
-    ('Verduras'),
-    ('Especias'),
-    ('Lácteos');
+    (1, 'Carnes frías'),
+    (2, 'Verduras'),
+    (3, 'Especias'),
+    (4, 'Lácteos'),
+    (5, 'Producto externo');
+
+SET IDENTITY_INSERT SupplyArea OFF;
 
 -- Insertar estados de orden
-INSERT INTO StatusOrder (type)
+SET IDENTITY_INSERT SupplyArea ON;
+INSERT INTO StatusOrder (statusId, [type])
 VALUES 
-    ('En captura'),
-    ('En espera de preparación'),
-    ('En preparación'),
-    ('Preparado'),
-    ('Enviado'),
-    ('Entregado');
+    (0, 'En captura'),
+    (1, 'En espera de preparación'),
+    (2, 'En preparación'),
+    (3, 'Preparado'),
+    (4, 'Enviado'),
+    (5, 'Entregado');
+SET IDENTITY_INSERT SupplyArea OFF;
 
 --- Un FK que faltaba en orders
 ALTER TABLE InternalOrder
