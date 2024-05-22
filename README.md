@@ -1,12 +1,23 @@
 # Italia-Pizza-Documents
 
-Este repositorio contiene todos los artefactos de análisis y diseño realizados hasta la fecha en el proyecto Italia Pizza. Aquí encontrarás modelos, diagramas, documentos y otros recursos relacionados con el desarrollo de este proyecto.
 
-## Contenido
+## Project Description
 
-El repositorio está organizado de la siguiente manera:
+Welcome to the Italia Pizza Documents repository! This repository serves as a central hub for all analysis and design artifacts created throughout the Italia Pizza project. Here, you will find comprehensive documentation, including models, diagrams, documents, and other resources essential for the development process.
 
+## Content
 
-## Uso
+The repository is organized into three main sections:
 
-Si estás trabajando en el proyecto Italia Pizza, este repositorio puede servirte como referencia para entender la estructura del sistema, sus componentes y sus relaciones. También puedes utilizar los artefactos aquí presentes como base para futuras iteraciones del diseño o para comunicar información relevante a otros miembros del equipo.
+- **Analysis:** Contains artifacts related to the analysis phase, such as requirements documents, user stories, and use case diagrams.
+  
+- **Design:** Includes artifacts related to the design phase, such as architecture diagrams, class diagrams, and sequence diagrams.
+  
+- **Documentation:** Houses all project documentation, including user manuals, installation guides, and release notes.
+
+## Additional Notes
+
+- This repository is part of the Italia Pizza project's documentation initiative.
+- Last updated: [22/05/2024]
+
+---
