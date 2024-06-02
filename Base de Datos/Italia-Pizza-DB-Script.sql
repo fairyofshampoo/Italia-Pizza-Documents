@@ -8,7 +8,7 @@ CREATE TABLE [Account] (
     [isAdmin] tinyint  NOT NULL,
     [password] varchar(64)  NULL,
     [status] tinyint  NOT NULL,
-    [email] varchar(30)  NOT NULL
+    [email] varchar(100)  NOT NULL
 );
 GO
 
@@ -19,7 +19,7 @@ CREATE TABLE [Address] (
     [postalCode] varchar(10)  NOT NULL,
     [colony] varchar(50)  NOT NULL,
     [status] tinyint  NOT NULL,
-    [clientId] varchar(30)  NOT NULL
+    [clientId] varchar(100)  NOT NULL
 );
 GO
 
@@ -34,7 +34,7 @@ GO
 
 -- Creating table 'Client'
 CREATE TABLE [Client] (
-    [email] varchar(30)  NOT NULL,
+    [email] varchar(100)  NOT NULL,
     [name] varchar(50)  NOT NULL,
     [phone] varchar(20)  NOT NULL,
     [status] tinyint  NOT NULL
@@ -55,7 +55,7 @@ GO
 
 -- Creating table 'Employee'
 CREATE TABLE [Employee] (
-    [email] varchar(30)  NOT NULL,
+    [email] varchar(100)  NOT NULL,
     [name] varchar(50)  NOT NULL,
     [phone] varchar(20)  NOT NULL,
     [role] varchar(20)  NOT NULL
@@ -80,7 +80,7 @@ CREATE TABLE [HomeOrder] (
     [date] datetime  NOT NULL,
     [time] time  NOT NULL,
     [total] decimal(10,2)  NOT NULL,
-    [clientName] varchar(30)  NOT NULL
+    [clientName] varchar(100)  NOT NULL
 );
 GO
 
@@ -91,7 +91,7 @@ CREATE TABLE [InternalOrder] (
     [date] datetime  NOT NULL,
     [time] time  NOT NULL,
     [total] decimal(10,2)  NOT NULL,
-    [waiterEmail] varchar(30)  NOT NULL
+    [waiterEmail] varchar(100)  NOT NULL
 );
 GO
 
@@ -139,7 +139,7 @@ GO
 
 -- Creating table 'Supplier'
 CREATE TABLE [Supplier] (
-    [email] varchar(30)  NOT NULL,
+    [email] varchar(100)  NOT NULL,
     [phone] varchar(20)  NOT NULL,
     [companyName] varchar(60)  NOT NULL,
     [manager] varchar(100)  NOT NULL,
@@ -155,7 +155,7 @@ CREATE TABLE [SupplierOrder] (
     [time] time  NOT NULL,
     [modificationDate] datetime NOT NULL,
     [total] decimal(10,2)  NOT NULL,
-    [supplierId] varchar(30)  NOT NULL
+    [supplierId] varchar(100)  NOT NULL
 );
 GO
 
@@ -180,7 +180,7 @@ CREATE TABLE CashierLog (
     supplierOrderCashout DECIMAL(10, 2) NOT NULL,
     miscellaneousCashout DECIMAL(10, 2) NOT NULL,
     finalBalance DECIMAL(10, 2) NOT NULL,
-    createdBy VARCHAR(30),
+    createdBy VARCHAR(100),
     [status] TINYINT
 );
 
@@ -202,7 +202,7 @@ GO
 -- Creating table 'SupplyOrder'
 CREATE TABLE [SupplyOrder] (
     [supplyOrderCode] int IDENTITY(1,1) NOT NULL,
-    [quantityOrdered] int  NOT NULL,
+    [quantityOrdered] DECIMAL(10, 3),
     [supplyId] varchar(50)  NOT NULL,
     [supplierOrderId] int  NOT NULL
 );
@@ -210,7 +210,7 @@ GO
 
 -- Creating table 'Supplier_SupplyArea'
 CREATE TABLE [Supplier_SupplyArea] (
-    [Supplier_email] varchar(30)  NOT NULL,
+    [Supplier_email] varchar(100)  NOT NULL,
     [SupplyArea_area_id] int  NOT NULL
 );
 GO
