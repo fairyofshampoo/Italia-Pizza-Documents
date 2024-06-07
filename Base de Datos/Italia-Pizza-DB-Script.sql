@@ -62,28 +62,6 @@ CREATE TABLE [Employee] (
 );
 GO
 
--- Creating table 'HomeOrderProduct'
-CREATE TABLE [HomeOrderProduct] (
-    [OrderProductId] int IDENTITY(1,1) NOT NULL,
-    [amount] int  NOT NULL,
-    [homeOrderId] varchar(15)  NOT NULL,
-    [isConfirmed] tinyint NOT NULL,
-    [productId] varchar(50)  NOT NULL,
-    [addressId] int  NOT NULL
-);
-GO
-
--- Creating table 'HomeOrder'
-CREATE TABLE [HomeOrder] (
-    [homeOrderId] VARCHAR(15) NOT NULL,
-    [status] INT  NOT NULL,
-    [date] datetime  NOT NULL,
-    [time] time  NOT NULL,
-    [total] decimal(10,2)  NOT NULL,
-    [clientName] varchar(100)  NOT NULL
-);
-GO
-
 -- Creating table 'InternalOrder'
 CREATE TABLE [InternalOrder] (
     [internalOrderId] VARCHAR(15) NOT NULL,
@@ -255,18 +233,6 @@ ADD CONSTRAINT [PK_Employee]
     PRIMARY KEY CLUSTERED ([email] ASC);
 GO
 
--- Creating primary key on [OrderProductId] in table 'HomeOrderProduct'
-ALTER TABLE [HomeOrderProduct]
-ADD CONSTRAINT [PK_HomeOrderProduct]
-    PRIMARY KEY CLUSTERED ([OrderProductId] ASC);
-GO
-
--- Creating primary key on [homeOrderId] in table 'HomeOrder'
-ALTER TABLE [HomeOrder]
-ADD CONSTRAINT [PK_HomeOrder]
-    PRIMARY KEY CLUSTERED ([homeOrderId] ASC);
-GO
-
 -- Creating primary key on [internalOrderId] in table 'InternalOrder'
 ALTER TABLE [InternalOrder]
 ADD CONSTRAINT [PK_InternalOrder]
@@ -358,21 +324,6 @@ ON [Account]
     ([email]);
 GO
 
--- Creating foreign key on [addressId] in table 'HomeOrderProduct'
-ALTER TABLE [HomeOrderProduct]
-ADD CONSTRAINT [FK_AddressId]
-    FOREIGN KEY ([addressId])
-    REFERENCES [Address]
-        ([addressId])
-    ON DELETE CASCADE ON UPDATE CASCADE;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_AddressId'
-CREATE INDEX [IX_FK_AddressId]
-ON [HomeOrderProduct]
-    ([addressId]);
-GO
-
 -- Creating foreign key on [clientId] in table 'Address'
 ALTER TABLE [Address]
 ADD CONSTRAINT [FK_ClientAddress]
@@ -386,21 +337,6 @@ GO
 CREATE INDEX [IX_FK_ClientAddress]
 ON [Address]
     ([clientId]);
-GO
-
--- Creating foreign key on [clientName] in table 'HomeOrder'
-ALTER TABLE [HomeOrder]
-ADD CONSTRAINT [FK_ClientName]
-    FOREIGN KEY ([clientName])
-    REFERENCES [Client]
-        ([email])
-    ON DELETE CASCADE ON UPDATE CASCADE;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ClientName'
-CREATE INDEX [IX_FK_ClientName]
-ON [HomeOrder]
-    ([clientName]);
 GO
 
 -- Creating foreign key on [waiterEmail] in table 'InternalOrder'
@@ -431,36 +367,6 @@ ADD CONSTRAINT [FK_EmployeeForCashier]
     REFERENCES [Employee]
         ([email])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [homeOrderId] in table 'HomeOrderProduct'
-ALTER TABLE [HomeOrderProduct]
-ADD CONSTRAINT [FK_HomeOrderId]
-    FOREIGN KEY ([homeOrderId])
-    REFERENCES [HomeOrder]
-        ([homeOrderId])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_HomeOrderId'
-CREATE INDEX [IX_FK_HomeOrderId]
-ON [HomeOrderProduct]
-    ([homeOrderId]);
-GO
-
--- Creating foreign key on [productId] in table 'HomeOrderProduct'
-ALTER TABLE [HomeOrderProduct]
-ADD CONSTRAINT [FK_HomeProductId]
-    FOREIGN KEY ([productId])
-    REFERENCES [Product]
-        ([productCode])
-    ON DELETE CASCADE ON UPDATE CASCADE;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_HomeProductId'
-CREATE INDEX [IX_FK_HomeProductId]
-ON [HomeOrderProduct]
-    ([productId]);
 GO
 
 -- Creating foreign key on [internalOrderId] in table 'InternalOrderProduct'
@@ -639,8 +545,6 @@ SET IDENTITY_INSERT SupplyArea OFF;
 ALTER TABLE InternalOrder
 ADD CONSTRAINT FK_StatusOrder_InternalOrders FOREIGN KEY (status) REFERENCES StatusOrder(statusId);
 
-ALTER TABLE HomeOrder
-ADD CONSTRAINT FK_StatusOrder_HomeOrders FOREIGN KEY (status) REFERENCES StatusOrder(statusId);
 
 --- CREAR FUNCION PARA SACAR CUANTO DE UN PRODUCTO SE PUEDE PREPARAR:
 /*CREATE FUNCTION  [dbo].[VALIDATEINGREDIENTSAMOUNT] (@RecipeId INT)
