@@ -18,6 +18,6 @@ The repository is organized into three main sections:
 ## Additional Notes
 
 - This repository is part of the Italia Pizza project's documentation initiative.
-- Last updated: [22/05/2024]
+- Last updated: [06/06/2024]
 
 ---
