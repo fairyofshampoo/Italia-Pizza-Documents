@@ -8,7 +8,7 @@ CREATE TABLE [Account] (
     [isAdmin] tinyint  NOT NULL,
     [password] varchar(64)  NULL,
     [status] tinyint  NOT NULL,
-    [email] varchar(30)  NOT NULL
+    [email] varchar(100)  NOT NULL
 );
 GO
 
@@ -19,7 +19,7 @@ CREATE TABLE [Address] (
     [postalCode] varchar(10)  NOT NULL,
     [colony] varchar(50)  NOT NULL,
     [status] tinyint  NOT NULL,
-    [clientId] varchar(30)  NOT NULL
+    [clientId] varchar(100)  NOT NULL
 );
 GO
 
@@ -34,7 +34,7 @@ GO
 
 -- Creating table 'Client'
 CREATE TABLE [Client] (
-    [email] varchar(30)  NOT NULL,
+    [email] varchar(100)  NOT NULL,
     [name] varchar(50)  NOT NULL,
     [phone] varchar(20)  NOT NULL,
     [status] tinyint  NOT NULL
@@ -55,32 +55,10 @@ GO
 
 -- Creating table 'Employee'
 CREATE TABLE [Employee] (
-    [email] varchar(30)  NOT NULL,
+    [email] varchar(100)  NOT NULL,
     [name] varchar(50)  NOT NULL,
     [phone] varchar(20)  NOT NULL,
     [role] varchar(20)  NOT NULL
-);
-GO
-
--- Creating table 'HomeOrderProduct'
-CREATE TABLE [HomeOrderProduct] (
-    [OrderProductId] int IDENTITY(1,1) NOT NULL,
-    [amount] int  NOT NULL,
-    [homeOrderId] varchar(15)  NOT NULL,
-    [isConfirmed] tinyint NOT NULL,
-    [productId] varchar(50)  NOT NULL,
-    [addressId] int  NOT NULL
-);
-GO
-
--- Creating table 'HomeOrder'
-CREATE TABLE [HomeOrder] (
-    [homeOrderId] VARCHAR(15) NOT NULL,
-    [status] INT  NOT NULL,
-    [date] datetime  NOT NULL,
-    [time] time  NOT NULL,
-    [total] decimal(10,2)  NOT NULL,
-    [clientName] varchar(30)  NOT NULL
 );
 GO
 
@@ -91,7 +69,7 @@ CREATE TABLE [InternalOrder] (
     [date] datetime  NOT NULL,
     [time] time  NOT NULL,
     [total] decimal(10,2)  NOT NULL,
-    [waiterEmail] varchar(30)  NOT NULL
+    [waiterEmail] varchar(100)  NOT NULL
 );
 GO
 
@@ -139,7 +117,7 @@ GO
 
 -- Creating table 'Supplier'
 CREATE TABLE [Supplier] (
-    [email] varchar(30)  NOT NULL,
+    [email] varchar(100)  NOT NULL,
     [phone] varchar(20)  NOT NULL,
     [companyName] varchar(60)  NOT NULL,
     [manager] varchar(100)  NOT NULL,
@@ -155,7 +133,7 @@ CREATE TABLE [SupplierOrder] (
     [time] time  NOT NULL,
     [modificationDate] datetime NOT NULL,
     [total] decimal(10,2)  NOT NULL,
-    [supplierId] varchar(30)  NOT NULL
+    [supplierId] varchar(100)  NOT NULL
 );
 GO
 
@@ -180,7 +158,7 @@ CREATE TABLE CashierLog (
     supplierOrderCashout DECIMAL(10, 2) NOT NULL,
     miscellaneousCashout DECIMAL(10, 2) NOT NULL,
     finalBalance DECIMAL(10, 2) NOT NULL,
-    createdBy VARCHAR(30),
+    createdBy VARCHAR(100),
     [status] TINYINT
 );
 
@@ -202,7 +180,7 @@ GO
 -- Creating table 'SupplyOrder'
 CREATE TABLE [SupplyOrder] (
     [supplyOrderCode] int IDENTITY(1,1) NOT NULL,
-    [quantityOrdered] int  NOT NULL,
+    [quantityOrdered] DECIMAL(10, 3),
     [supplyId] varchar(50)  NOT NULL,
     [supplierOrderId] int  NOT NULL
 );
@@ -210,7 +188,7 @@ GO
 
 -- Creating table 'Supplier_SupplyArea'
 CREATE TABLE [Supplier_SupplyArea] (
-    [Supplier_email] varchar(30)  NOT NULL,
+    [Supplier_email] varchar(100)  NOT NULL,
     [SupplyArea_area_id] int  NOT NULL
 );
 GO
@@ -253,18 +231,6 @@ GO
 ALTER TABLE [Employee]
 ADD CONSTRAINT [PK_Employee]
     PRIMARY KEY CLUSTERED ([email] ASC);
-GO
-
--- Creating primary key on [OrderProductId] in table 'HomeOrderProduct'
-ALTER TABLE [HomeOrderProduct]
-ADD CONSTRAINT [PK_HomeOrderProduct]
-    PRIMARY KEY CLUSTERED ([OrderProductId] ASC);
-GO
-
--- Creating primary key on [homeOrderId] in table 'HomeOrder'
-ALTER TABLE [HomeOrder]
-ADD CONSTRAINT [PK_HomeOrder]
-    PRIMARY KEY CLUSTERED ([homeOrderId] ASC);
 GO
 
 -- Creating primary key on [internalOrderId] in table 'InternalOrder'
@@ -358,21 +324,6 @@ ON [Account]
     ([email]);
 GO
 
--- Creating foreign key on [addressId] in table 'HomeOrderProduct'
-ALTER TABLE [HomeOrderProduct]
-ADD CONSTRAINT [FK_AddressId]
-    FOREIGN KEY ([addressId])
-    REFERENCES [Address]
-        ([addressId])
-    ON DELETE CASCADE ON UPDATE CASCADE;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_AddressId'
-CREATE INDEX [IX_FK_AddressId]
-ON [HomeOrderProduct]
-    ([addressId]);
-GO
-
 -- Creating foreign key on [clientId] in table 'Address'
 ALTER TABLE [Address]
 ADD CONSTRAINT [FK_ClientAddress]
@@ -386,21 +337,6 @@ GO
 CREATE INDEX [IX_FK_ClientAddress]
 ON [Address]
     ([clientId]);
-GO
-
--- Creating foreign key on [clientName] in table 'HomeOrder'
-ALTER TABLE [HomeOrder]
-ADD CONSTRAINT [FK_ClientName]
-    FOREIGN KEY ([clientName])
-    REFERENCES [Client]
-        ([email])
-    ON DELETE CASCADE ON UPDATE CASCADE;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ClientName'
-CREATE INDEX [IX_FK_ClientName]
-ON [HomeOrder]
-    ([clientName]);
 GO
 
 -- Creating foreign key on [waiterEmail] in table 'InternalOrder'
@@ -431,36 +367,6 @@ ADD CONSTRAINT [FK_EmployeeForCashier]
     REFERENCES [Employee]
         ([email])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [homeOrderId] in table 'HomeOrderProduct'
-ALTER TABLE [HomeOrderProduct]
-ADD CONSTRAINT [FK_HomeOrderId]
-    FOREIGN KEY ([homeOrderId])
-    REFERENCES [HomeOrder]
-        ([homeOrderId])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_HomeOrderId'
-CREATE INDEX [IX_FK_HomeOrderId]
-ON [HomeOrderProduct]
-    ([homeOrderId]);
-GO
-
--- Creating foreign key on [productId] in table 'HomeOrderProduct'
-ALTER TABLE [HomeOrderProduct]
-ADD CONSTRAINT [FK_HomeProductId]
-    FOREIGN KEY ([productId])
-    REFERENCES [Product]
-        ([productCode])
-    ON DELETE CASCADE ON UPDATE CASCADE;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_HomeProductId'
-CREATE INDEX [IX_FK_HomeProductId]
-ON [HomeOrderProduct]
-    ([productId]);
 GO
 
 -- Creating foreign key on [internalOrderId] in table 'InternalOrderProduct'
@@ -639,8 +545,6 @@ SET IDENTITY_INSERT SupplyArea OFF;
 ALTER TABLE InternalOrder
 ADD CONSTRAINT FK_StatusOrder_InternalOrders FOREIGN KEY (status) REFERENCES StatusOrder(statusId);
 
-ALTER TABLE HomeOrder
-ADD CONSTRAINT FK_StatusOrder_HomeOrders FOREIGN KEY (status) REFERENCES StatusOrder(statusId);
 
 --- CREAR FUNCION PARA SACAR CUANTO DE UN PRODUCTO SE PUEDE PREPARAR:
 /*CREATE FUNCTION  [dbo].[VALIDATEINGREDIENTSAMOUNT] (@RecipeId INT)
